@@ -1,0 +1,37 @@
+{
+  "name": "clangd-compile-command-switcher",
+  "displayName": "Clangd compile command switcher",
+  "description": "Status bar picker for the compile_commands.json clangd uses; restarts clangd on change.",
+  "version": "0.1.0",
+  "publisher": "jimmyw",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "clangdSwitcher.pick",
+        "title": "Switch compile commands",
+        "category": "Clangd"
+      }
+    ],
+    "configuration": {
+      "title": "Clangd compile command switcher",
+      "properties": {
+        "clangdSwitcher.exclude": {
+          "type": "string",
+          "default": "**/{node_modules,.git,managed_components}/**",
+          "description": "Glob of paths to skip when scanning for compile_commands.json."
+        }
+      }
+    }
+  }
+}
